@@ -1,53 +1,74 @@
 # Hierarchical Inheritance in Python
+2. Create `Employee` class extending `Details`, adding employee-specific data.
+3. Create `Patient` class extending `Details`, adding patient-specific data.
+4. Get user input for employee and patient data.
 5. Display collected information using class methods.
 
 ## Program
-Add code here
-```
+
+```python
+
 class Details:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-    def getName(self):
-        return self.name
-    def getAge(self):
-        return self.age
-class Employee(Details):
-    def __init__(self, name, age, employee_id, department):
-        super().__init__(name, age)
-        self.employee_id = employee_id
-        self.department = department
-    def getEmployeeDetails(self):
-        print("Employee Information:")
-        print("Name:", self.getName())
-        print("Age:", self.getAge())
-        print("Employee ID:", self.employee_id)
-        print("Department:", self.department)
-class Patient(Details):
-    def __init__(self, name, age, patient_id, disease):
-        super().__init__(name, age)
-        self.patient_id = patient_id
-        self.disease = disease
-    def getPatientDetails(self):
-        print("Patient Information:")
-        print("Name:", self.getName())
-        print("Age:", self.getAge())
-        print("Patient ID:", self.patient_id)
-        print("Disease:", self.disease)
+    def __init__(self):
+        self.__id="<No Id>"
+        self.__name="<No Name>"
+        self.__gender="<No Gender>"
+    def setData(self,id,name,gender):
+        self.__id=id
+        self.__name=name
+        self.__gender=gender
+    def showData(self):
+        print("Id: ",self.__id)
+        print("Name: ", self.__name)
+        print("Gender: ", self.__gender)
 
-emp_name = input()
-emp_age = int(input())
-emp_id = input()
-emp_dept = input()
-employee = Employee(emp_name, emp_age, emp_id, emp_dept)
-pat_name = input()
-pat_age = int(input())
-pat_id = input()
-pat_disease = input()
-patient = Patient(pat_name, pat_age, pat_id, pat_disease)
-employee.getEmployeeDetails()
-patient.getPatientDetails()
+class Employee(Details): #Inheritance
+    def __init__(self):
+        self.__company="<No Company>"
+        self.__dept="<No Dept>"
+    def setEmployee(self,id,name,gender,comp,dept):
+        self.setData(id,name,gender)
+        self.__company=comp
+        self.__dept=dept
+    def showEmployee(self):
+        self.showData()
+        print("Hospital: ", self.__company)
+        print("Department: ", self.__dept)
+
+class Patient(Details): #Inheritance
+    def __init__(self):
+        self.__hospital="<No Hospital>"
+        self.__dept="<No Dept>"
+    def setEmployee(self,id,name,gender,hos,dept):
+        self.setData(id,name,gender)
+        self.__hospital=hos
+        self.__dept=dept
+    def showEmployee(self):
+        self.showData()
+        print("Hospital: ", self.__hospital)
+        print("Department: ", self.__dept)
+
+id=int(input())
+name=input()
+gender=input()
+comp=input()
+dept=input()
+id1=int(input())
+nam=input()
+gen=input()
+hosp=input()
+dep=input()
+
+print("Doctor Object")
+e=Employee()
+e.setEmployee(id,name,gender,comp,dept)
+e.showEmployee()
+print("\nPatient Object")
+d = Patient()
+d.setEmployee(id1, nam, gen, hosp, dep)
+d.showEmployee()
 ```
-## Sample Output
-<img width="518" height="399" alt="image" src="https://github.com/user-attachments/assets/df66e98d-f9e4-4162-8065-8e5e156dc7bd" />
 
+## Sample Output
+
+![image](https://github.com/user-attachments/assets/45c89888-05d0-4b1f-ad2d-0e74a51cfb21)
