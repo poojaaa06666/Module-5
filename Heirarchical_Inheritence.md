@@ -1,29 +1,4 @@
 # Hierarchical Inheritance in Python
-2. Create `Employee` class extending `Details`, adding employee-specific data.
-3. Create `Patient` class extending `Details`, adding patient-specific data.
-4. Get user input for employee and patient data.
-5. Display collected information using class methods.
-
-## Program
-
-```python
-
-class Details:
-    def __init__(self):
-        self.__id="<No Id>"
-        self.__name="<No Name>"
-        self.__gender="<No Gender>"
-    def setData(self,id,name,gender):
-        self.__id=id
-        self.__name=name
-        self.__gender=gender
-    def showData(self):
-        print("Id: ",self.__id)
-        print("Name: ", self.__name)
-        print("Gender: ", self.__gender)
-
-class Employee(Details): #Inheritance
-    def __init__(self):
         self.__company="<No Company>"
         self.__dept="<No Dept>"
     def setEmployee(self,id,name,gender,comp,dept):
@@ -72,3 +47,7 @@ d.showEmployee()
 ## Sample Output
 
 ![image](https://github.com/user-attachments/assets/45c89888-05d0-4b1f-ad2d-0e74a51cfb21)
+
+## Result
+
+Thus the program that uses **Hierarchical Inheritance** to input and display **Employee** and **Patient** details hase been executed successfully.
